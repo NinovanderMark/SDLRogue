@@ -1,0 +1,209 @@
+() collidable[subtype][tilenum]
+subtype:	0 = World Tiles
+		1 = Object Tiles
+Tilenum =	The tile #, returns true if this tile # is collidable
+
+() roomset[Roomnum][X][Y]
+
+Stores the Tile # to be placed at this location.
+Unique Values: -1 = End of X Row
+
+() objset[Roomnum][X][Y][Vartype]
+Vartype: 	0 = Type of object
+		1 = Objectid (or object property)
+
+() fgset[Roomnum][X][Y]
+
+() encset[Roomnum][Area][Vartype]
+Area = 		Area number (out of 8 possibilities)
+Vartype:	0 = Start X coordinate
+		1 = Start Y coordinate
+		2 = End X coordinate
+		3 = End Y Coordinate
+		4 = Monster to encounter #1
+		5 = Monster to encounter #2
+		6 = Monster to encounter #3
+		7 = Arena type
+		8 = Area Level (0 = match player's)
+
+() roomenc[X][Y]
+
+Stores the Encounter Area (+1) of this tile.
+Unique Values: 	0 = Not part of an encounter area
+
+() ptmonster[ID][value][subvalue]
+
+[0][0] = Type (Sprite)		[0][1] = Base Health
+[0][2] = Base Mana		[0][3] = Base STR
+[0][4] = Base INT		[0][5] = Base DEX
+[0][6] = Base CON		[0][7] = Endurance Delay
+[0][8] = Endurance Gain
+
+[0][9] = Maximum # of this monster to spawn
+[0][10] = Monster class (Critter, NPC, Hostile, Enemy, Boss)
+
+[1][X] = Attack #X
+
+[2][even] - Chance % - [2][uneven] - Loot type for X
+[3][even] - Chance % - [3][uneven] - Super Loot type for X
+
+() monstername[ID] = The name for the above defined monster
+
+() aiattack[ID][value][subvalue]
+
+[0][0] = Type			[0][1] = Class
+	0 = General			0 = Damage
+	1 = Magic (Fire)		1 = Damage over Time
+	2 = Magic (Lightning)		2 = Healing
+	3 = Magic (Poison)		3 = Buff
+	4 = Magic (Holy)		4 = Incapacitate
+	5 = Weapon (Sword)		5 = Desperation
+	6 = Weapon (Axe)		
+	7 = Weapon (Dagger)		
+	8 = Weapon (Bow)		
+
+[0][2] = Base Min. Damage	[0][3] = Base Max. Damage
+[0][4] = Endurance Cost		[0][5] = Self Cast? (1 = true)
+[0][6] = Sucess ratio (%)	[0][7] = Attack to trigger
+[0][8] = Damage scales with level? (1 = true)
+
+[1][0] = # of Free steps 	[1][1] = Attack Range
+
+[2][0] = Effect type		[2][1] = Effect based on
+	0 = None			0 = Points
+	1 = Damage over Time		1 = Percentage
+	2 = Health income reduced
+	3 = Mana drained over Time
+	4 = Mana income reduced
+	5 = Endurance reduced
+	6 = Endurance income reduced
+	7 = Weapon skill handicap
+	8 = Magic skill handicap
+	9 = Spell resistance decrease
+	10 = Weapon resistance decrease
+
+[2][2] = Effect Duration (in turns)
+
+() aiattackname[ID] = The name for the above defined attack
+
+() arenaset[X][Y]
+
+() arenafg[X][Y]
+
+() spawns[ID][coordinate]
+coordinate: 	0 = X Coordinate for spawn
+		1 = Y Coordinate for spawn
+
+() error(type,subtype,var-a, var-b, var-c, var-d, var-e)
+
+		Type 0: (General errors)
+Subtype:
+0	- Required variable out of range		(Read,Min,Max,Line)
+1	- Room width too small				(RoomID)
+2	- Room height too small				(RoomID)
+
+		Type 1: (File loading errors)
+Subtype:
+0	- Can't find/open file				(0,0,0,0,Filename)
+1	- Incorrect file version		(Read,Required,0,0,Filename)
+2	- Variable read not compatible with type
+3	- Too many entities read in level
+4	- Too many objects read in level
+5	- Too much tilezones read in level
+6	- Too much foreground tilezones read in level
+7	- Too many encounter areas read in level
+8	- Too many spawns found
+9	- No items of specified type found
+
+
+		Type 2: (Tilesetting errors)
+Subtype:
+0	- Too much tiles read in index
+1	- Too much objects read in index
+
+
+		Type 3: (AI related errors)
+Subtype:
+0	- Too many attacks for monster			(Line)
+1	- Too many loot types for monster		(Line)
+2	- Too many special loot types for monster	(Line)
+3	- Too much monsters read in index
+4	- Too many attacks read in index
+
+() rendque[ID][type][vartype]
+
+type:
+	0 = Normal
+	1 = Object
+	2 = Foreground
+
+vartype:
+	0 = X coordinate (in pixels)
+	1 = Y coordinate (in pixels)
+	2 = Clip #
+	3 = Special int
+
+		For Special int:
+0 = Nothing special		1 = Miniclip ON
+2 = Use Alternative Tileset
+
+() battlebeasts[ID][vartype]
+
+vartpe:
+	0 = X coordinate
+	1 = Y coordinate
+	2 = Object ID
+
+() combqui[mode][P1endurance][P1maxendurance][MONendurance*]
+
+		Mode 0: (Barebones)
+returns:
+0 = Normal end of cycle
+1 = User pressed <action>
+
+		Mode 1: (Count up)
+returns:
+0 = Normal end of cycle
+
+		Mode 2: (Action)
+returns:
+-1 = User closed the app
+0 = User pressed <cancel>
+1 = User chose 'Attack'
+2 = User chose 'Magic'
+3 = User chose 'Item'
+4 = User chose 'Move'
+
+		Mode 3: (Attack)
+returns:
+-1 = User closed the app
+0 = User pressed <cancel>
+>0 = User chose Attack #
+
+		Mode 4: (Magic)
+returns:
+-1 = User closed the app
+0 = User pressed <cancel>
+>0 = User chose Spell #
+		
+		Mode 5: (Item)
+returns:
+-1 = User closed the app
+0 = User pressed <cancel>
+>0 = User chose Item #
+
+		Mode 6: (Move)
+returns:
+-1 = User closed the app
+0 = User pressed <cancel>
+1 = (Flag) User moves North
+2 = (Flag) User moves East
+4 = (Flag) User moves South
+8 = (Flag) User moves West
+16 = (Flag) User moves 1 step
+32 = (Flag) User moves 2 steps
+64 = (Flag) User moves 3 steps
+128 = (Flag) User moves 4 steps
+256 = (Flag) User moves 5 steps
+512 = (Flag) User moves 6 steps
+

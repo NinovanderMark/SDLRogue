@@ -1,0 +1,26 @@
+Quilist defines.
+
+[ 1 ] = "Open Door"
+[ 2 ] = "Close Door"
+[ 3 ] = "Unlock Door"
+[ 4 ] = "Unlock Door" (in Grey/Red)
+[ 5 ] = "Pickup Key"
+[ 99 ] = "Close Menu"
+
+Quimode outputs.
+
+[ 0 ] = "Do Nothing"
+[ 1 ] = "Open Door"
+[ 2 ] = "Close Door"
+[ 3 ] = "Unlock Door"
+[ 4 ] = "Pickup Key"
+
+GUI Draw element defines
+
+[ 0 ] - Playername, HP, MaxHP, MP, MaxMP (and Sidebar borders)
+[ 1 ] - Current Level (Major), Current Level (Minor), Exp, Nextexp
+[ 2 ] - STR, DEX, INT, CON, CHA, LUC
+[ 3 ] - MagicSkills & WeaponSkills
+[ 4 ] - Keys
+[ 5 ] - Cash
+[ 6 ] - Inventory

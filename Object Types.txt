@@ -1,0 +1,42 @@
+Objecttype: 0
+Purpose: To indicate "NO OBJECT HERE"
+
+Objecttype: 1
+Purpose: Teleporter, to translocate player from A to B
+Associated Object properties:
+[0] - Draw mode. 0 = Don't, 1 = North, 2 = East, 3 = South, 4 = West
+[1] - Destination Room ID
+[2] - Destination X coordinate
+[3] - Destination Y coordinate
+[4] - Player facing after Teleport. 1 = N, 2 = E, 3 = S, 4 = W
+
+Objecttype: 2
+Purpose: Door, to prevent access by monsters or players under certain circumstances
+Associated Object properties:
+[0] - Visual Type. 0 = Wood, 1 = Steel
+[1] - Facing. 0 = Front, 1 = Sideways
+[2] - Key Type. 0 = None (Door Unlocked), 1 = Bronze, 2 = Silver, 3 = Gold, 4 = Blue card, 5 = Green card, 6 = Yellow card, 7 = Red card
+
+Objecttype: 3
+Purpose: Opened Door, to remember door locations without obstructing players/monsters
+Associated Object properties:
+[0] - Visual Type. 0 = Wood, 1 = Steel
+[1] - Facing. 0 = Front, 1 = Sideways
+
+Objecttype: 4
+Purpose: Key object - unlocks doors
+Associated Object properties (stored in the ObjectID's place):
+[0] - Key type: 0 = Masterkey 1 = Bronze key, 2 = Silver key, 3 = Gold key, 4 = Blue card, 5 = Green card, 6 = Yellow card, 7 = Red card
+
+Objecttype: 5
+Purpose: Monster object - To combat
+Associated Object properties:
+[0] - Prototype #		[1] - X Coordinate
+[2] - Y Coordinate		[3] - Move Step
+[4] - Frame #			[5] - Facing
+[6] - HP			[7] - Max HP
+[8] - MP			[9] - Max MP
+[10] - STR			[11] - INT
+[12] - DEX			[13] - CON
+[14] - Endurance		[15] - Endurance 'step'
+[16] - Next Move

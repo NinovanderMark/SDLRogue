@@ -1,0 +1,87 @@
+SDL Rogue - Roadmap
+
+======================
+Already accomplished:
+======================
+
++ Tile rendering
++ Player rendering
++ Player movement (+ smooth movement)
++ Player collision
++ Camera implementation (+ border limiting)
++ Teleports (= visible or non-visible staircases)
++ Upper layer (purely aesthetic drawing layer on top of player )
++ Performance increase + FPS Limiting
++ Doors
++ Popup Menu allowing player to "open door" and "unlock door"
++ Keys (with which locked doors can be opened)
+
++ Closed door images and functionality (basics)
++ Add stats to the player, render them in the sidebar
+  - Name
+  - HP & MP
+  - STR, INT, DEX, CON, CHA, LUC
+  - Keys
+  - Money
+
++ Have the following load from a file:
+
+	> Specific objects (object[#][#]) 	- Level file
+	> The level (all the rooms)		- Level file
+	> Which tiles are collidable		- Tileset config file
+	> Performance Optimization vars		- Config file
+	> Monsters				- Monster DB file
+	> AI Attacks				- Attack DB file
+
+======================
+Next few tasks:
+======================
+
+Adding Combat. This will require me to know a few things.
+
+++ Which variables will the 'monster' need to have in it's object
+&& Which variables can be referred to by prototype
+
+++ Which other variables need to be known by the rest of the combat procedure
+> Endurance for the procedure
+> Moves & Spells (+mana costs)
+> Current Mana
+
+++ Combat procedure structure
+> Rendering, placing the HUD
+> Counting up the endurance counters, waiting for a response
+1> On Player response draw the HUD, providing choice between moves & spells
+1> Player selects a move (+spell) and the game checks if it's possible
+2> On CPU response, select an attack and check if it's possible
+> If it is, the action is added to a que, step by step
+> The que is completed, 1 action at a time, and rendered all the way
+> Stats are modified accordingly, effects applied etc.
+> Repeat until one side is dead
+
+======================
+To be accomplished:
+======================
+
++ Add Combat (with basic hardcoded weapon)
+
++ Prevent program errors from incorrect file content. 'Tighten' everything.
+
++ Add Carryable weapons (replacing the hardcoded one) +LFF
++ Add Spells +LFF
+
++ Add Level up functionality (meaning, stats change dynamically as you level up)
+
++ Add carryable items +LFF
++ Add 'treasure chests'
++ Add item usability
+
++ Create conversation system
+
++ Create a Main Menu which functions as a "home" inside the program
++ Add Save/Load functionality
++ Add ingame Config editting for major functions
+
++ Create "Random Level" routine to make it a "true" Roguelike game.
++ Create a sepperate level editor to create roomsets etc.
+
++ Build a singleplayer campaign

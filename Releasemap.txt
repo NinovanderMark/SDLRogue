@@ -1,0 +1,55 @@
+Required components each release.
+
+Release 0.1:
++ Full Combat workings (+ Moves + Spells + AI + Basic FX)
++ Levelling
++ Filechecking more failsafe
++ Basic Level
+
+Release 0.2:
++ Inventory, carryable items
++ Item Containers
++ Equippable gear
++ Gear Relevance in Combat
++ Have at least 15 Monsters, Spells, Moves and Attacks
+
+Release 0.3:
++ Conversation System
++ Multiple Area Support
++ Main Menu
++ Mod Support
++ Sound Effects
+
+Release 0.4:
++ Add triggers (Objects that cause Combat, level alterations etc.)
++ A 'start of game' triggerset
++ Add 'Image card' system
++ Death Trigger
++ Music
+
+Release 0.5:
++ Balance all current and suggested Monsters/moves etc.
++ Start work on the official campaign
++ Add Vendors who'll buy/sell items
+
+Release 0.6:
++ Add crafting system
++ Add spellmaking
++ Add reputation/karma system
+
+Release 0.7:
++ ???
+
+Release 0.8:
++ Rewrite entire engine with current feature set
+
+Release 0.9:
++ Fix all bugs resulting from the rewrite
++ Add last minute features, nothing major
++ Have everything compile on Windows, Linux & Mac
+
+Release 1.0:
++ Campaign is done.
++ Engine is feature complete
++ Everything looks and sounds good
++ Game can be played on: Windows, Linux, Mac
