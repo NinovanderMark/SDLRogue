@@ -17,3 +17,15 @@ In order to build the project on Windows, the following libraries are required:
 - zlib1.dll
 - libfreetype-6.dll
 These can be found on SDL's website: http://www.libsdl.org
+
+Additionally the following SDL header files should be included in the PATH environment variable:
+- SDL.h
+- SDL_ttf.h
+
+## Building
+Building the project using MinGW can be done with the following script
+```
+g++ -c SRedit.cpp
+g++ -c sdrclass.cpp
+g++ -o SRedit SRedit.o ../rrlib/rrclass.o sdrclass.o -I SDL/include -L SDL/lib -lmingw32 -lSDLmain -lSDL -lSDL_ttf -mwindows
+```
