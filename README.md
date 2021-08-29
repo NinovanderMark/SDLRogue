@@ -25,7 +25,7 @@ Additionally the following SDL header files should be included in the PATH envir
 ## Building
 Building the project using MinGW can be done with the following script
 ```
-g++ -c SRedit.cpp
+g++ -c SDLRogue.cpp
 g++ -c sdrclass.cpp
-g++ -o SRedit SRedit.o ../rrlib/rrclass.o sdrclass.o -I SDL/include -L SDL/lib -lmingw32 -lSDLmain -lSDL -lSDL_ttf -mwindows
+g++ -o SDLRogue SDLRogue.o sdrclass.o -I SDL/include -L SDL/lib -lmingw32 -lSDLmain -lSDL -lSDL_ttf -mwindows
 ```
